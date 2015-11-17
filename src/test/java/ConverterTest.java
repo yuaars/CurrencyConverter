@@ -27,9 +27,19 @@ public class ConverterTest {
     }
 
     @Test
-    public void presenceOfFinanceTab(){
-        
-        WebElement financeTab = getDriver().findElement(FinancePage.FINANCE_PAGE_TAB);
-        Assert.assertTrue(financeTab.isDisplayed());
+    public void presenceOfFinanceTabTest(){
+        FinancePage.presenceOfElement();
+    }
+
+    @Test
+    public void correctnessOfURLTest(){
+        FinancePage.currentURL();
+    }
+
+    @Test
+    public void presenceOfConverterBlockTest(){
+
+
     }
 }
+
