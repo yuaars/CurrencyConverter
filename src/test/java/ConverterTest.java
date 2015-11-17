@@ -40,5 +40,10 @@ public class ConverterTest {
     public void presenceOfConverterBlockTest(){
         FinancePage.presenceOfCurrencyConverterBlock();
     }
+
+    @Test
+    public void presenceOfFieldsOfCurrencyConverterBlockTest(){
+        FinancePage.presenceOfFieldsOfCurrencyConverterBlock();
+    }
 }
 
