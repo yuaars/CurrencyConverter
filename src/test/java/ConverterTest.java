@@ -38,8 +38,7 @@ public class ConverterTest {
 
     @Test
     public void presenceOfConverterBlockTest(){
-
-
+        FinancePage.presenceOfCurrencyConverterBlock();
     }
 }
 
