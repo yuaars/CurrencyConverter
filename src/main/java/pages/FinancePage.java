@@ -8,7 +8,12 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static helpers.DriverSingleton.getDriver;
 import static helpers.Locators.get;
@@ -16,8 +21,8 @@ import static helpers.Locators.get;
 public class FinancePage {
 
 
-    public static final By FINANCE_PAGE_TAB = get ("financeLink");
-    public static final By CURRENCY_CONVERTER_BLOCK = get ("currencyConverterBlock");
+    public static final By FINANCE_PAGE_TAB = get("financeLink");
+    public static final By CURRENCY_CONVERTER_BLOCK = get("currencyConverterBlock");
     public static final By CURRENCY_DDL_FIELD_NAME_BYR = get("currencyDDLFieldNameBYR");
     public static final By CURRENCY_DDL_FIELD_NAME_USD = get("currencyDDLFieldNameUSD");
     public static final By SELECT_FIELD_BYR = get("selectFieldBYR");
@@ -34,21 +39,21 @@ public class FinancePage {
         financeTab.click();
     }*/
 
-    public static void presenceOfElement(){
+    public static void presenceOfElement() {
         WebElement financeTab = getDriver().findElement(FINANCE_PAGE_TAB);
         Assert.assertTrue(financeTab.isDisplayed());
     }
 
-    public static void currentURL () {
+    public static void currentURL() {
         WebElement financeTab = getDriver().findElement(FINANCE_PAGE_TAB);
         Assert.assertTrue(financeTab.isDisplayed());
         financeTab.click();
         String currentURL = getDriver().getCurrentUrl();
         String expectedURL = "http://finance.tut.by/";
-        Assert.assertEquals(currentURL,expectedURL);
+        Assert.assertEquals(currentURL, expectedURL);
     }
 
-    public static void presenceOfCurrencyConverterBlock(){
+    public static void presenceOfCurrencyConverterBlock() {
         WebElement financeTab = getDriver().findElement(FINANCE_PAGE_TAB);
         financeTab.click();
 
@@ -56,7 +61,7 @@ public class FinancePage {
         Assert.assertTrue(currencyConverterBlock.isDisplayed());
     }
 
-    public static void presenceOfFieldsOfCurrencyConverterBlock(){
+    public static void presenceOfFieldsOfCurrencyConverterBlock() {
         WebElement financeTab = getDriver().findElement(FINANCE_PAGE_TAB);
         financeTab.click();
 
@@ -74,7 +79,7 @@ public class FinancePage {
     }
 
     //не работает
-    public static void getCurrentCourse(){
+    public static void getCurrentCourse() {
         WebElement financeTab = getDriver().findElement(FINANCE_PAGE_TAB);
         financeTab.click();
 
@@ -85,9 +90,9 @@ public class FinancePage {
         Select dropdown = new Select(select);
 
         List<WebElement> options = dropdown.getOptions();
-        Assert.assertEquals(options.size(),25);
+        Assert.assertEquals(options.size(), 25);
         Assert.assertFalse(dropdown.isMultiple());
-        Assert.assertEquals(dropdown.getFirstSelectedOption().getText(),"BYR");
+        Assert.assertEquals(dropdown.getFirstSelectedOption().getText(), "BYR");
     }
 
     //doesn't work !!!!
@@ -114,11 +119,9 @@ public class FinancePage {
 
         WebElement BYRfield = getDriver().findElement(SELECT_FIELD_BYR);
         String convertedValue = BYRfield.getText();
-        Assert.assertEquals(currentCourse,convertedValue);
+        Assert.assertEquals(currentCourse, convertedValue);
 
     }
 
-    public static void dateParsing(){
 
-    }
 }
