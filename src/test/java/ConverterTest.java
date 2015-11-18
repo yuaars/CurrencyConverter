@@ -45,5 +45,12 @@ public class ConverterTest {
     public void presenceOfFieldsOfCurrencyConverterBlockTest(){
         FinancePage.presenceOfFieldsOfCurrencyConverterBlock();
     }
+
+    @Test
+    //?! doesn't work yet
+    public void currentCourseTest() throws InterruptedException {
+        FinancePage.fillFields();
+
+    }
 }
 
