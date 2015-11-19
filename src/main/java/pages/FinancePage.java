@@ -15,6 +15,7 @@ public class FinancePage {
     public static final By SELECT_FIELD_USD = get("selectFieldUSD");
     public static final By ADD_CURRENCY_FIELD = get("addCurrencyField");
     public static final By CURRENT_NBRB_COURSE = get("currentCourse");
+    public static final By CURRENT_DATE_STRING = get("currentDateString");
 
 
 

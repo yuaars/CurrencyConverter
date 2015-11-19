@@ -5,6 +5,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.FinancePage;
+import helpers.DateValidator;
 
 import static helpers.DriverSingleton.getDriver;
 
@@ -74,7 +75,6 @@ public class ConverterTest {
     }
 
     @Test
-    //?! doesn't work yet
     public void currentCourseTest() throws InterruptedException {
         WebElement financeTab = getDriver().findElement(FinancePage.FINANCE_PAGE_TAB);
         financeTab.click();
@@ -89,6 +89,18 @@ public class ConverterTest {
         Assert.assertEquals(selectFieldBYR.getText(),currentCourse.getText());
 
         System.out.println(selectFieldBYR.getText());
+
+    }
+
+    @Test
+    public void currentDateValidationTest(){
+        WebElement financeTab = getDriver().findElement(FinancePage.FINANCE_PAGE_TAB);
+        financeTab.click();
+
+        WebElement currentDate = getDriver().findElement(FinancePage.CURRENT_DATE_STRING);
+        String date = currentDate.getText();
+
+        DateValidator.dateChecker(date);
 
     }
 }
